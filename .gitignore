@@ -5,4 +5,4 @@
 dist/
 
 # Ignorar carpeta build y todo su contenido
-build/
+build/NexoPDF
