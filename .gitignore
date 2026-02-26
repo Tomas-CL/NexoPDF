@@ -1,0 +1,8 @@
+# Ignorar archivos .spec
+*.spec
+
+# Ignorar carpeta dist y todo su contenido
+dist/
+
+# Ignorar carpeta build y todo su contenido
+build/
