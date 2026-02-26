@@ -12,10 +12,16 @@ class NexoPDFApp:
         self.root.geometry("500x300")
         self.root.resizable(False, False)
 
-        self.source_folder = tk.StringVar()
-        self.destination_folder = tk.StringVar()
+        self.source_folder = tk.StringVar(value=os.path.expanduser("~"))
+        self.destination_folder = tk.StringVar(value=os.path.join(os.path.expanduser("~"), "PDFs"))
 
         self.create_widgets()
+        self.ensure_destination_folder()
+
+    def ensure_destination_folder(self):
+        dest = self.destination_folder.get()
+        if not os.path.exists(dest):
+            os.makedirs(dest)
 
     def create_widgets(self):
         tk.Label(self.root, text="Nexo PDF", font=("Arial", 20, "bold")).pack(pady=20)
@@ -101,6 +107,4 @@ def main():
     app = NexoPDFApp(root)
     root.mainloop()
 
-
-if __name__ == "__main__":
-    main()
+main()
